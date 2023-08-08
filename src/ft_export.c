@@ -32,11 +32,11 @@ int	is_valid_export_arg(char *str)
 
 	i = 0;
 
+	if (str[0] && ft_isdigit(str[0]))
+		return (print_export_err(str));
 	while (str[i])
 	{
-		if (ft_isdigit(str[0]))
-			return (print_export_err(str));
-		if (is_invalid_key(str[i]))
+		if (!ft_isalnum(str[i]) && str[i] != '_')
 			return (print_export_err(str));
 		++i;
 	}

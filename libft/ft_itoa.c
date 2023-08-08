@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phan <phan@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyunminjo <hyunminjo@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 15:54:42 by phan              #+#    #+#             */
-/*   Updated: 2023/04/01 17:43:02 by phan             ###   ########.fr       */
+/*   Updated: 2023/08/08 13:18:31 by hyunminjo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_itoa(int n)
 	n_len = numlen(tmp_n);
 	str = (char *)malloc(sizeof(char) * (n_len + 1));
 	if (!str)
-		return (0);
+		exit(1);
 	if (tmp_n < 0)
 	{
 		str[0] = '-';

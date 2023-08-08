@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phan <phan@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyunminjo <hyunminjo@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 18:54:02 by phan              #+#    #+#             */
-/*   Updated: 2023/04/01 18:25:10 by phan             ###   ########.fr       */
+/*   Updated: 2023/08/08 13:19:30 by hyunminjo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	*make_str(char const *s, int w_len)
 
 	w = (char *)malloc(sizeof(char) * (w_len + 1));
 	if (!w)
-		return (0);
+		exit(1);
 	ft_memmove(w, s, w_len);
 	w[w_len] = '\0';
 	new_w = ft_strdup(w);
@@ -94,7 +94,7 @@ char	**ft_split(char const *s, char c)
 	w_list_len = word_count(s, c);
 	w_list = (char **)malloc(sizeof(char *) * (w_list_len + 1));
 	if (!w_list)
-		return (0);
+		exit(1);
 	w_list = insert_word_to_list(w_list, s, c, w_list_len);
 	return (w_list);
 }

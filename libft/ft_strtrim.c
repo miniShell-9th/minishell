@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phan <phan@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: hyunminjo <hyunminjo@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 20:49:54 by phan              #+#    #+#             */
-/*   Updated: 2023/04/01 18:50:51 by phan             ###   ########.fr       */
+/*   Updated: 2023/08/08 13:19:48 by hyunminjo        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	rlen = idx + 1;
 	result = (char *)malloc(sizeof(char) * (rlen + 1));
 	if (!result)
-		return (0);
+		exit(1);
 	ft_memmove(result, s1, rlen);
 	result[rlen] = '\0';
 	return (result);
