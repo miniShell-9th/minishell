@@ -12,7 +12,7 @@ void	ft_pwd(char **simple_cmd, t_list **environ, int fd)
 		ft_putstr_fd(simple_cmd[1], 2);
 		ft_putendl_fd(": invalid option ", 2);
 		ft_putendl_fd("pwd: no option", 2);
-		error_status = 1;
+		g_error_status = 1;
 		return ;
 	}
 	str = NULL;

@@ -31,7 +31,7 @@ void	ft_unset(char **simple_cmd, t_list **environ, int fd)
 	(void)fd;
 	i = 0;
 	tmp = NULL;
-	error_status = 0;
+	g_error_status = 0;
 	while (simple_cmd[++i])
 	{
 		tmp = ft_getenvnode(environ, simple_cmd[i]);

@@ -1,11 +1,5 @@
 #include "minishell.h"
 
-int	is_invalid_key(int c)
-{
-	return (c == '!' || c == ' ' || c == '\\'
-		|| c == '?' || c == '\'' || c == '\"');
-}
-
 int	print_export_err(char *str)
 {
 	ft_putstr_fd("minishell: export: \'", 2);
@@ -31,7 +25,6 @@ int	is_valid_export_arg(char *str)
 	int	i;
 
 	i = 0;
-
 	if (str[0] && ft_isdigit(str[0]))
 		return (print_export_err(str));
 	while (str[i])
@@ -45,6 +38,19 @@ int	is_valid_export_arg(char *str)
 	return (1);
 }
 
+void	print_export(t_list **environ, int fd)
+{
+	t_list	*iter;
+
+	iter = *environ;
+	while (iter)
+	{
+		ft_putendl_fd(iter->content, fd);
+		iter = iter->next;
+	}
+	g_error_status = 0;
+}
+
 void	ft_export(char **simple_cmd, t_list **environ, int fd)
 {
 	int		i;
@@ -52,15 +58,8 @@ void	ft_export(char **simple_cmd, t_list **environ, int fd)
 	t_list	*tmp;
 
 	(void)fd;
-	if (simple_cmd[1] == 0)
-	{
-		tmp = *environ;
-		while (tmp)
-		{
-			ft_putendl_fd(tmp->content, fd);
-			tmp = tmp->next;
-		}
-	}
+	if (!simple_cmd[1])
+		print_export(environ, fd);
 	i = 0;
 	while (simple_cmd[++i])
 	{
@@ -73,10 +72,10 @@ void	ft_export(char **simple_cmd, t_list **environ, int fd)
 			if (tmp)
 				ft_lstdel_mid(environ, tmp);
 			ft_lstadd_back(environ, ft_lstnew(ft_strdup(simple_cmd[i])));
-			error_status = 0;
+			g_error_status = 0;
 		}
 		else
-			error_status = 1;
+			g_error_status = 1;
 		free(word);
 	}
 }

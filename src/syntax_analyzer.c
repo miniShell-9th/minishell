@@ -56,5 +56,6 @@ int	ft_error(t_token **type_list, char *content)
 	ft_putstr_fd(SYNTAX_ERROR_MSG, 2);
 	ft_putendl_fd(content, STDERR_FILENO);
 	ft_tokenclear(type_list, free);
+	g_error_status = SYNTAX_ERROR;
 	return (SYNTAX_ERROR);
 }

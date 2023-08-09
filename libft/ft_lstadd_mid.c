@@ -7,7 +7,6 @@ void	ft_lstadd_mid(t_list *target_node, t_list **new_lst)
 	t_list	*cpy_lst;
 	t_list	*last;
 
-
 	if (!*new_lst)
 		return ;
 	tmp = *new_lst;
